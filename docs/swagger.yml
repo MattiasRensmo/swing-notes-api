@@ -1,0 +1,214 @@
+openapi: '3.0.0'
+info:
+  title: Swing Notes API
+  version: '1.0'
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /api/notes:
+    get:
+      summary: Hämta anteckningar
+      tags:
+        - notes
+      description: Hämtar alla anteckningar för inloggad användare. Kräver giltig JWT-token.
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Lyckades hämta anteckningar
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Note'
+        '400':
+          description: Felaktig förfrågan
+
+    post:
+      summary: Spara en anteckning
+      tags:
+        - notes
+      description: Sparar en ny anteckning för inloggad användare. Kräver giltig JWT-token.
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoteContent'
+      responses:
+        '200':
+          description: Anteckning sparad framgångsrikt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+        '400':
+          description: Felaktig förfrågan
+
+  /api/notes/{id}:
+    put:
+      summary: Ändra en anteckning
+      tags:
+        - notes
+      description: Uppdaterar en befintlig anteckning för inloggad användare. Kräver giltig JWT-token.
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: Anteckningens id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoteContent'
+      responses:
+        '200':
+          description: Anteckning uppdaterad framgångsrikt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Note'
+        '400':
+          description: Felaktig förfrågan
+        '404':
+          description: Anteckning hittades inte
+
+    delete:
+      summary: Ta bort en anteckning
+      tags:
+        - notes
+      description: Tar bort en befintlig anteckning för inloggad användare. Kräver giltig JWT-token.
+      security:
+        - BearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: Anteckningens id
+      responses:
+        '200':
+          description: Anteckning borttagen framgångsrikt
+        '404':
+          description: Anteckning hittades inte
+
+  /api/notes/search/{searchString}:
+    get:
+      summary: Söka bland anteckningar
+      description: Söker bland användarens anteckningar baserat på titel. Kräver giltig JWT-token.
+      parameters:
+        - in: path
+          name: searchString
+          schema:
+            type: string
+          required: true
+          description: Titel att söka efter
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Lyckades hitta anteckningar
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Note'
+        '400':
+          description: Felaktig förfrågan
+
+  /api/user/signup:
+    post:
+      summary: Skapa konto
+      tags:
+        - users
+      description: Skapar ett nytt användarkonto.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Användarkonto skapat framgångsrikt
+        '400':
+          description: Felaktig förfrågan
+
+  /api/user/login:
+    post:
+      summary: Logga in
+      tags:
+        - users
+      description: Loggar in en användare och returnerar en JWT-token som måste användas för att få åtkomst till andra resurser.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Inloggning lyckades
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  jwt:
+                    type: string
+        '400':
+          description: Felaktig förfrågan
+
+components:
+  schemas:
+    Note:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/NoteContent'
+
+      properties:
+        id:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        modifiedAt:
+          type: string
+          format: date-time
+
+    NoteContent:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 50
+        text:
+          type: string
+          maxLength: 300
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
