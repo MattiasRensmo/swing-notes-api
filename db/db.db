@@ -1,0 +1,18 @@
+{"title":"string1","text":"string första försöket","createdBy":"admin","type":"note","createdAt":{"$$date":1714673871806},"modifiedAt":{"$$date":1714673871806},"_id":"03jAf0xTNtVk6Gby"}
+{"title":"string","text":"string","type":"note","createdAt":{"$$date":1714672734070},"modifiedAt":{"$$date":1714672734070},"_id":"2qYt9W5zOTPSzwzz"}
+{"type":"user","username":"<string>","password":"$2a$10$pnmpYNfMpGcCIr97IfppLezdPECF1787oFHxhT0qDFAS/enkKCVee","_id":"GuqDTdZ3cdDwHXbC"}
+{"type":"user","username":"kalle","password":"$2a$10$DUaXo./DeGcjVXMAOd7KUeBCqBe24NCMwE2uxUJKU6.tt74dbAw6q","_id":"T4l29DvZknNuV8Vt"}
+{"type":"user","username":"admin","password":"$2a$10$7Xrdl7h4S3T5gF2ZABcFYux833bIpuU4iJ2c72TODGk05tXUcncaq","_id":"YOEqZMyErzgcazfY"}
+{"title":"string3","text":"string","user":"string","type":"note","createdAt":{"$$date":1714672917731},"modifiedAt":{"$$date":1714672917731},"_id":"ZgZt4fCfeJ195C4x"}
+{"title":"Trevligt meddelande","text":"Trefligt text. Nu är texten lite längre","type":"note","createdAt":{"$$date":1714639319680},"modifiedAt":{"$$date":1714639375456},"_id":"ako5DhUqXFBI6ajS"}
+{"title":"string2","text":"string","type":"note","createdAt":{"$$date":1714672888041},"modifiedAt":{"$$date":1714672888041},"_id":"gkdjpMDOyEe6x6PZ"}
+{"title":"string4","text":"Fjärde försöket","createdBy":"string","type":"note","createdAt":{"$$date":1714673032880},"modifiedAt":{"$$date":1714673614842},"_id":"seAEnGeA3mA66FFZ"}
+{"type":"user","username":"string","password":"$2a$10$sUsiK5X11fPLhM1N4j2zxeEg7HK7654nZJIZeb.uVz7/yaynmTBl2","_id":"xb7wb9uDSkXr0mDR"}
+{"type":"user","username":"jonte","password":"$2a$10$65DgH/OUb4aPBRagOfBKy.dhnOD3/wcFkwuwF7ICwnvJ5ptNn9u7a","_id":"WnfDDPZc1ogdEIX0"}
+{"title":"<string>","text":"<string>","createdBy":"jonte","type":"note","createdAt":{"$$date":1714678048624},"modifiedAt":{"$$date":1714678048624},"_id":"RUIvz3j6bjp7mL3m"}
+{"type":"user","username":"user1","password":"$2a$10$pQqOiEsAI8w9UZtx1EBAZeXrv4MEEdKvVa6PxNJly0hkyTJ2QR8B.","_id":"ydpr6ztzkM4le65G"}
+{"title":"<string>","text":"<string>","createdBy":"user1","type":"note","createdAt":{"$$date":1714678357365},"modifiedAt":{"$$date":1714678357365},"_id":"dGyUidfuPSwVx96L"}
+{"type":"user","username":"testMan","password":"$2a$10$uFfSUK1A6wmATzaWVv9LVuU3KAl5Uyl4kz/meGMnxkAc1LNkmfrua","_id":"dyGc4zQzNlxR4UOE"}
+{"title":"string testman","text":"string","createdBy":"testMan","type":"note","createdAt":{"$$date":1714678491669},"modifiedAt":{"$$date":1714678491669},"_id":"h94tEOlZ2vQ2OJSt"}
+{"title":"string testman","text":"testar mer ","createdBy":"testMan","type":"note","createdAt":{"$$date":1714678491669},"modifiedAt":{"$$date":1714678519140},"_id":"h94tEOlZ2vQ2OJSt"}
+{"$$deleted":true,"_id":"h94tEOlZ2vQ2OJSt"}
